@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+  Image depot
+{% endblock %}
+
+{% block content %}
+  <form action="{% url "upload" %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user.username }}
+    {{ form.as_p }}
+    <input type="submit" value="Upload" name="upload-button" class="btn btn-success">
+    <input type="submit" value="Cancel" name="cancel-button" class="btn btn-warning">
+  </form>
+{% endblock %}

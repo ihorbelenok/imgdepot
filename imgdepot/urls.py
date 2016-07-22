@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
+from depot import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('allauth.urls')),
+  url(r'^$', views.main, name="main"),
+  url(r'^upload/$', login_required(views.ImageEntryCreate.as_view()), name="upload"),
+  url(r'^admin/', admin.site.urls),
+  url(r'^accounts/', include('allauth.urls')),
 ]
