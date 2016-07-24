@@ -17,10 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from depot import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
   url(r'^$', views.main, name="main"),
   url(r'^upload/$', login_required(views.ImageEntryCreate.as_view()), name="upload"),
   url(r'^admin/', admin.site.urls),
   url(r'^accounts/', include('allauth.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

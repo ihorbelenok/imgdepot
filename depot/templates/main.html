@@ -1,10 +1,26 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block title %}
   Image depot - Main
 {% endblock %}
 
 {% block content %}
+  <span class="ribbon ribbon-top-right ribbon-red">Alpha</span>
   <h1>MAIN</h1>
+    <a href="{% url "upload" %}" class="btn btn-default"><span class="glyphicon glyphicon-upload"></span> Upload
+    </a>
+    <div class="container">
+      {% include page_template %}
+    </div>
+{% endblock %}
+
+{% block additional_js %}
+    {{ block.super }}
+    <script src="{% static "el-pagination/js/el-pagination.js" %}"></script>
+    <script>$.endlessPaginate({
+            paginateOnScroll: true,
+            paginateOnScrollMargin: 50
+        });</script>
 {% endblock %}

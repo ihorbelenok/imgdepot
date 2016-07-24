@@ -1,64 +1,175 @@
 *::-webkit-input-placeholder {
-	color: #666;
-	opacity: 1;
+  color: #666;
+  opacity: 1;
 }
+
 *:-moz-placeholder {
-	color: #666;
-	opacity: 1;
+  color: #666;
+  opacity: 1;
 }
+
 *::-moz-placeholder {
-	color: #666;
-	opacity: 1;
+  color: #666;
+  opacity: 1;
 }
+
 *:-ms-input-placeholder {
-	color: #666;
-	opacity: 1;
+  color: #666;
+  opacity: 1;
 }
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid {
-	
+
 }
+
 body input:required:valid,
 body textarea:required:valid {
-	
+
 }
 
 html.js .loader {
-	background: none repeat scroll 0 0 #ffffff;
-	bottom: 0;
-	height: 100%;
-	left: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-	width: 100%;
-	z-index: 9999;
+  background: none repeat scroll 0 0 #404040;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
+
 html.js .loader_inner {
-	background-image: url("../img/preloader.gif");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #fff;
-	height: 60px;
-	width: 60px;
-	margin-top: -30px;
-	margin-left: -30px;
-	left: 50%;
-	top: 50%;
-	position: absolute;
+  background-image: url("../img/preloader.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #404040;
+  height: 60px;
+  width: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  left: 50%;
+  top: 50%;
+  position: absolute;
 }
 
 body {
-	font-family: sans-serif;
-	font-size: 16px;
-	min-width: 320px;
-	position: relative;
-	line-height: 1.6;
-	font-family: "RobotoRegular", sans-serif;
-	overflow-x: hidden;
+  font-family: sans-serif;
+  font-size: 16px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.6;
+  font-family: "RobotoRegular", sans-serif;
+  overflow-x: hidden;
+  background-color: #404040;
 }
+
 .hidden {
-	display: none;
+  display: none;
+}
+
+.ribbon {
+  position: fixed;
+  z-index: 8000;
+  display: inline-block;
+  line-height: 2.2em;
+  padding: 0 500px;
+  margin: 0 -500px;
+  font-size: 15px;
+  font-family: "Georgia", serif;
+  font-style: italic;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: .3s;
+  -o-transition-duration: .3s;
+  transition-duration: .3s;
+}
+
+.ribbon:hover {
+  opacity: .5;
+}
+
+.ribbon:before {
+  content: "";
+  position: absolute;
+  top: .2em;
+  left: 0;
+  right: 0;
+  bottom: .2em;
+  display: block;
+  border: 1px dashed rgba(0, 0, 0, 0.45);
+}
+
+.ribbon-bottom-left,
+.ribbon-top-right {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+
+.ribbon-top-left,
+.ribbon-bottom-right {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+.ribbon-top-left,
+.ribbon-top-right {
+  top: 1em;
+}
+
+.ribbon-top-left,
+.ribbon-bottom-left {
+  left: 1em;
+}
+
+.ribbon-top-right,
+.ribbon-bottom-right {
+  right: 1em;
+}
+
+.ribbon-bottom-left,
+.ribbon-bottom-right {
+  bottom: 1em;
+}
+
+.ribbon-green {
+  color: #030;
+  text-shadow: .05em .05em 0 #4b4;
+  background-color: green;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #238929), color-stop(100%, #157d1f));
+  background-image: -webkit-linear-gradient(top, #238929 0%, #157d1f 100%);
+  background-image: -o-linear-gradient(top, #238929 0%, #157d1f 100%);
+  background-image: linear-gradient(to bottom, #238929 0%, #157d1f 100%);
+}
+
+.ribbon-red {
+  color: #300;
+  text-shadow: .05em .05em 0 #b44;
+  background-color: red;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #892329), color-stop(100%, #7d151f));
+  background-image: -webkit-linear-gradient(top, #892329 0%, #7d151f 100%);
+  background-image: -o-linear-gradient(top, #892329 0%, #7d151f 100%);
+  background-image: linear-gradient(to bottom, #892329 0%, #7d151f 100%);
+}
+
+.ribbon-blue {
+  color: #003;
+  text-shadow: .05em .05em 0 #44b;
+  background-color: blue;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #232989), color-stop(100%, #151f7d));
+  background-image: -webkit-linear-gradient(top, #232989 0%, #151f7d 100%);
+  background-image: -o-linear-gradient(top, #232989 0%, #151f7d 100%);
+  background-image: linear-gradient(to bottom, #232989 0%, #151f7d 100%);
+}
+
+.thumbnail-box {
+  margin: 10px 0;
 }
