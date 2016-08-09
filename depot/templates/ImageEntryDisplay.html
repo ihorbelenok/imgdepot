@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+  Image depot
+{% endblock %}
+
+{% block content %}
+  <aside class="side-panel">
+
+  </aside>
+  <main class="main-panel">
+    <div class="scrollbar-macosx">
+      <div class="img-box fit">
+        <img src="{{ MEDIA_URL }}{{ image.image }}" alt="image">
+      </div>
+    </div>
+  </main>
+{% endblock %}

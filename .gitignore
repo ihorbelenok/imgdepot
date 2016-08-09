@@ -143,7 +143,6 @@ fabric.properties
 out
 gen
 .env/
-.gitignore
 .idea/
 depot/__init__.pyc
 depot/admin.pyc
@@ -153,5 +152,3 @@ imgdepot/__init__.pyc
 imgdepot/settings.pyc
 imgdepot/urls.pyc
 imgdepot/wsgi.pyc
-templates/
-depot/static/libs/jquery-scrollbar/
