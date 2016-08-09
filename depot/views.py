@@ -43,3 +43,8 @@ class ImageEntryCreate(CreateView):
             return HttpResponseRedirect(reverse('main'))
         else:
             return super(ImageEntryCreate, self).post(request, *args, **kwargs)
+
+
+def ImageEntryDisplay(request, id=1):
+    image = ImageEntry.objects.get(id=id)
+    return render(request, "ImageEntryDisplay.html", {"image": image})

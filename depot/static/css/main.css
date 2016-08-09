@@ -59,11 +59,10 @@ body {
   font-family: sans-serif;
   font-size: 16px;
   min-width: 320px;
-  position: relative;
   line-height: 1.6;
   font-family: "RobotoRegular", sans-serif;
   overflow-x: hidden;
-  background-color: #404040;
+  background-color: #eee;
 }
 
 .hidden {
@@ -78,7 +77,7 @@ body {
   padding: 0 500px;
   margin: 0 -500px;
   font-size: 15px;
-  font-family: "Georgia", serif;
+  font-family: "RobotoRegular", sans-serif;
   font-style: italic;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   -webkit-transition-property: opacity;
@@ -154,10 +153,10 @@ body {
   color: #300;
   text-shadow: .05em .05em 0 #b44;
   background-color: red;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #892329), color-stop(100%, #7d151f));
-  background-image: -webkit-linear-gradient(top, #892329 0%, #7d151f 100%);
-  background-image: -o-linear-gradient(top, #892329 0%, #7d151f 100%);
-  background-image: linear-gradient(to bottom, #892329 0%, #7d151f 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d74047), color-stop(100%, #d71c2e));
+  background-image: -webkit-linear-gradient(top, #d74047 0%, #d71c2e 100%);
+  background-image: -o-linear-gradient(top, #d74047 0%, #d71c2e 100%);
+  background-image: linear-gradient(to bottom, #d74047 0%, #d71c2e 100%);
 }
 
 .ribbon-blue {
@@ -173,3 +172,202 @@ body {
 .thumbnail-box {
   margin: 10px 0;
 }
+
+.side-panel{
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #909090;
+}
+
+.main-panel{
+  position: absolute;
+  top: 0px;
+  height: 100vh;
+  left: 300px;
+  right: 0px;
+  text-align: center;
+  overflow-x: none;
+  overflow-y: none;
+}
+
+.scrollbar-macosx{
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.img-box{
+  display: inline-block;
+  padding: 5px;
+  cursor: zoom-out;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.fit.img-box,
+.fill.img-box {
+  cursor: zoom-in;
+}
+
+.fit.img-box img,
+.fill.img-box img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/*************** SCROLLBAR BASE CSS ***************/
+
+.scroll-wrapper {
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative;
+}
+
+.scroll-wrapper > .scroll-content {
+    border: none !important;
+    box-sizing: content-box !important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none !important;
+    overflow: scroll !important;
+    padding: 0;
+    position: relative !important;
+    top: 0;
+    width: auto !important;
+}
+
+.scroll-wrapper > .scroll-content::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+
+.scroll-element {
+    display: none;
+}
+.scroll-element, .scroll-element div {
+    box-sizing: content-box;
+}
+
+.scroll-element.scroll-x.scroll-scrollx_visible,
+.scroll-element.scroll-y.scroll-scrolly_visible {
+    display: block;
+}
+
+.scroll-element .scroll-bar,
+.scroll-element .scroll-arrow {
+    cursor: default;
+}
+
+.scroll-textarea {
+    border: 1px solid #cccccc;
+    border-top-color: #999999;
+}
+.scroll-textarea > .scroll-content {
+    overflow: hidden !important;
+}
+.scroll-textarea > .scroll-content > textarea {
+    border: none !important;
+    box-sizing: border-box;
+    height: 100% !important;
+    margin: 0;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: scroll !important;
+    outline: none;
+    padding: 2px;
+    position: relative !important;
+    top: 0;
+    width: 100% !important;
+}
+.scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+
+
+
+
+/*************** SCROLLBAR MAC OS X ***************/
+
+.scrollbar-macosx > .scroll-element,
+.scrollbar-macosx > .scroll-element div
+{
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+}
+
+.scrollbar-macosx > .scroll-element div {
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.scrollbar-macosx > .scroll-element .scroll-element_track { display: none; }
+.scrollbar-macosx > .scroll-element .scroll-bar {
+    background-color: #6C6E71;
+    display: block;
+
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    -ms-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
+.scrollbar-macosx:hover > .scroll-element .scroll-bar,
+.scrollbar-macosx > .scroll-element.scroll-draggable .scroll-bar {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+
+.scrollbar-macosx > .scroll-element.scroll-x {
+    bottom: 0px;
+    height: 0px;
+    left: 0;
+    min-width: 100%;
+    overflow: visible;
+    width: 100%;
+}
+
+.scrollbar-macosx > .scroll-element.scroll-y {
+    height: 100%;
+    min-height: 100%;
+    right: 0px;
+    top: 0;
+    width: 0px;
+}
+
+/* scrollbar height/width & offset from container borders */
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-bar { height: 7px; min-width: 10px; top: -9px; }
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-bar { left: -9px; min-height: 10px; width: 7px; }
+
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-element_outer { left: 2px; }
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-element_size { left: -4px; }
+
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-element_outer { top: 2px; }
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-element_size { top: -4px; }
+
+/* update scrollbar offset if both scrolls are visible */
+.scrollbar-macosx > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -11px; }
+.scrollbar-macosx > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -11px; }

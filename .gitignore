@@ -154,3 +154,4 @@ imgdepot/settings.pyc
 imgdepot/urls.pyc
 imgdepot/wsgi.pyc
 templates/
+depot/static/libs/jquery-scrollbar/
