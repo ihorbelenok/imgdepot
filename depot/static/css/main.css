@@ -169,56 +169,6 @@ body {
   background-image: linear-gradient(to bottom, #232989 0%, #151f7d 100%);
 }
 
-.thumbnail-box {
-  margin: 10px 0;
-}
-
-.side-panel{
-  position: absolute;
-  width: 300px;
-  height: 100vh;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-color: #909090;
-}
-
-.main-panel{
-  position: absolute;
-  top: 0px;
-  height: 100vh;
-  left: 300px;
-  right: 0px;
-  text-align: center;
-  overflow-x: none;
-  overflow-y: none;
-}
-
-.scrollbar-macosx{
-  height: 100%;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: auto;
-}
-
-.img-box{
-  display: inline-block;
-  padding: 5px;
-  cursor: zoom-out;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.fit.img-box,
-.fill.img-box {
-  cursor: zoom-in;
-}
-
-.fit.img-box img,
-.fill.img-box img{
-  max-width: 100%;
-  max-height: 100%;
-}
-
 /*************** SCROLLBAR BASE CSS ***************/
 
 .scroll-wrapper {
@@ -371,3 +321,81 @@ body {
 /* update scrollbar offset if both scrolls are visible */
 .scrollbar-macosx > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -11px; }
 .scrollbar-macosx > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -11px; }
+
+
+/*******************************************************************************/
+/*******************************************************************************/
+/*******************************************************************************/
+/*******************************************************************************/
+/*******************************************************************************/
+
+.thumbnail-box {
+  margin: 10px 0;
+}
+
+.side-panel{
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #909090;
+}
+
+.main-panel{
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  left: 300px;
+  right: 0px;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.img-scrollbar-wrapper{
+  height: 100%;
+}
+
+.scrollbar-macosx{
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.img-box{
+  max-height: inherit;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.fit .img-box img{
+  max-height: inherit;
+  max-width: 95%;
+}
+
+.full .img-box{
+  max-height: 100%;
+  cursor: zoom-out;
+}
+
+.fit-height.fill,
+.fit-height.fill img{
+  max-height: inherit;
+}
+
+.fit-width.fill,
+.fit-width.fill img{
+  max-width: 100%;
+}
+
+.fit .scroll-y .scroll-bar,
+.fill.fit-height .scroll-y .scroll-bar{
+  display: none !important;
+}
+
+.fill.fit-width .scroll-y .scroll-bar{
+  display: block !important;
+}

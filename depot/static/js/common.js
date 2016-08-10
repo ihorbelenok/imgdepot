@@ -30,62 +30,54 @@ $(window).load(function () {
 });
 
 $(document).ready(function(){
-    $(".img-box").height($(".main-panel").height()-10);
     $('.scrollbar-macosx').scrollbar();
+
+    var imgScWr = $(".img-scrollbar-wrapper");
+    var img = $(".scrollbar-macosx .img-box img");
+    if (imgScWr.width()/imgScWr.height()>img.data("width")/img.data("height")) {
+        imgScWr.addClass("fit-width");
+    }
+    else {
+        imgScWr.addClass("fit-height");
+    }
 });
 
-function imgboxresize() {
-    var imgbox = $(".img-box");
-    if (imgbox.hasClass("fit")) {
-        imgbox.removeAttr("style");
-        imgbox.width($(".main-panel").width()-10);
-        imgbox.removeClass("fit");
-        imgbox.addClass("fill");
-        $(".img-box img").removeAttr("style");
-        $(".img-box img").width(imgbox.width());
-        $(".scrollbar-macosx").scrollTop(($(".img-box").height()-$(".scrollbar-macosx").height()) / 2);
-    }
-    else if (imgbox.hasClass("fill")) {
-        imgbox.removeClass("fill");
-        imgbox.addClass("full");
-        imgbox.removeAttr("style");
-        $(".img-box img").removeAttr("style");
-        $(".scrollbar-macosx").scrollTop(($(".img-box").height()-$(".scrollbar-macosx").height()) / 2);
-        $(".scrollbar-macosx").scrollLeft(($(".img-box").width()-$(".scrollbar-macosx").width()) / 2);
+$(window).resize(function () {
+    var imgScWr = $(".img-scrollbar-wrapper");
+    var img = $(".scrollbar-macosx .img-box img");
+    if (imgScWr.width()/imgScWr.height()>img.data("width")/img.data("height")) {
+        imgScWr.addClass("fit-width");
+        $(".scrollbar-macosx").css("max-height", $(".img-scrollbar-wrapper").height());
+        imgScWr.removeClass("fit-height");
     }
     else {
-        imgbox.height($(".main-panel").height()-10);
-        imgbox.removeClass("full");
-        imgbox.addClass("fit");
-        $(".img-box img").removeAttr("style");
-        $(".img-box img").height(imgbox.height());
+        $(".scrollbar-macosx").css("max-height", "inherit");
+        imgScWr.addClass("fit-height");
+        imgScWr.removeClass("fit-width");
     }
-}
 
-$(window).on("resize", function () {
-    console.log("blah");
-    var imgbox = $(".img-box");
-    if (imgbox.hasClass("fit")) {
-        imgbox.height($(".main-panel").height()-10);
-        $(".img-box img").removeAttr("style");
-        $(".img-box img").height(imgbox.height());
-
-    }
-    else if (imgbox.hasClass("fill")) {
-        imgbox.width($(".main-panel").width()-10);
-        $(".img-box img").removeAttr("style");
-        $(".img-box img").width(imgbox.width());
-        $(".scrollbar-macosx").scrollTop(($(".img-box").height()-$(".scrollbar-macosx").height()) / 2);
-    }
-    else {
-        imgbox.removeAttr("style");
-        $(".img-box img").removeAttr("style");
-        $(".scrollbar-macosx").scrollTop(($(".img-box").height()-$(".scrollbar-macosx").height()) / 2);
-        $(".scrollbar-macosx").scrollLeft(($(".img-box").width()-$(".scrollbar-macosx").width()) / 2);
-    }
 });
 
 $(".img-box").on("click", function () {
-    imgboxresize();
+    var imgScWr = $(".img-scrollbar-wrapper");
+    if (imgScWr.hasClass("fit")){
+        if (imgScWr.hasClass("fit-height")){
+            $(".scrollbar-macosx").css("height", "auto");
+            $(".scrollbar-macosx").css("max-height", $(".img-scrollbar-wrapper").height());
+        }
+        imgScWr.removeClass("fit");
+        imgScWr.addClass("fill");
+    }
+    else if (imgScWr.hasClass("fill")){
+        $(".scrollbar-macosx .img-box img").removeAttr("style");
+        imgScWr.addClass("full");
+        imgScWr.removeClass("fill");
+    }
+    else {
+        imgScWr.addClass("fit");
+        imgScWr.removeClass("full");
+    }
 });
+
+
 

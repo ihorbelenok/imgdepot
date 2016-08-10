@@ -10,9 +10,11 @@
 
   </aside>
   <main class="main-panel">
-    <div class="scrollbar-macosx">
-      <div class="img-box fit">
-        <img src="{{ MEDIA_URL }}{{ image.image }}" alt="image">
+    <div class="img-scrollbar-wrapper fit">
+      <div class="scrollbar-macosx">
+        <div class="img-box">
+          <img src="{{ MEDIA_URL }}{{ image.image }}" alt="image" data-height="{{ image.height }}" data-width="{{ image.width }}">
+        </div>
       </div>
     </div>
   </main>
